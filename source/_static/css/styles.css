@@ -42,13 +42,13 @@ html {
 html[data-theme=light] {
   --pst-color-border: #e0e0e0;
   --pst-color-bg-sidebar-tab-active: var(--gray-100);
-  --pst-color-primary: var(--pst-color-info);
-  --pst-color-secondary: var(--pst-color-info);
+  --pst-color-primary: #2C72F0 /*var(--pst-color-info)*/;
+  --pst-color-secondary: var(--pst-color-accent);
   --pst-color-accent: var(--pst-color-primary);
   /*--pst-color-text-sidebar: var(--pst-color-text-base);*/
   /* --pst-color-text-secondary: var(--gray-475); */
   --pst-color-text-muted: var(--gray-500);
-  --pst-color-link-hover: var(--pst-color-info);
+  --pst-color-link-hover: var(--pst-color-accent);
 }
 
 html[data-theme=dark] {
@@ -81,6 +81,8 @@ h4 {
 
 a {
   text-decoration: none;
+  text-underline-offset: 0.28rem !important;
+  text-decoration-thickness: auto !important;
 }
 
 a:hover {
@@ -157,17 +159,50 @@ thead {
   max-width: unset;
 }
 
-/*************/
-/* Main Page */
-/*************/
+/* -- Main Page ------------------------------------------------------------- */
 section#documentation {
   width: 100vw;
-  height: 50vh;
+  height: 60vh;
   /* background: blue; */
   position: relative;
   top: 0;
   max-width: 200rem;
 }
+
+.landing-hero {
+  position: relative;
+  height: 50vh;
+  border-radius: 28px;
+  margin-bottom: 40px;
+  background-image: url("../img/background.png");
+  background-repeat: no-repeat; /* stop repeating */
+  background-size: cover;       /* fill entire div */
+  background-position: right;  /* keep it centered */
+}
+
+.landing-hero-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.landing-hero-content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1000;
+}
+
 
 /******************/
 /* Home Main Page */
@@ -355,6 +390,16 @@ DO ONE FOR THE HEADER SEPARATELY
   padding: 0 0.1rem;
 }
 
+.prev-next-area a {
+  text-decoration: none !important;
+}
+
+.prev-next-area a p.prev-next-title {
+  text-decoration: none;
+  text-underline-offset: 0.28rem !important;
+}
+
+/* -- Breadcrumbs ------------------------------------------------------------ */
 ul.bd-breadcrumbs, ul.bd-breadcrumbs li.breadcrumb-item a, ul.bd-breadcrumbs li.breadcrumb-item:not(.breadcrumb-home):before {
   font-size: var(--pst-sidebar-font-size);
   color: var(--pst-color-text-muted);
@@ -365,6 +410,10 @@ ul.bd-breadcrumbs li.breadcrumb-item {
   font-size: var(--pst-sidebar-font-size);
 }
 
+ul.bd-breadcrumbs li.breadcrumb-item.active {
+  /* font-weight: 600; */
+}
+
 ul.bd-breadcrumbs li.breadcrumb-item a[aria-label="Home"] svg {
   display: none;
 }
@@ -373,9 +422,8 @@ ul.bd-breadcrumbs li.breadcrumb-item a[aria-label="Home"]::after {
   content: "Home";
 }
 
-/*********************/
-/* Secondary Sidebar */
-/*********************/
+
+/* -- Secondary Sidebar ----------------------------------------------------- */
 .bd-sidebar-secondary {
   width: 20%;
 }
@@ -424,4 +472,54 @@ ul.bd-breadcrumbs li.breadcrumb-item a[aria-label="Home"]::after {
 
 .toc-entry a.nav-link.active {
   color: var(--pst-color-text-base);
+}
+
+/* -- Footer ---------------------------------------------------------------- */
+.bd-footer {
+  display: none;
+}
+
+/* -- Search Results -------------------------------------------------------- */
+#search-results h2 {
+  display: none;
+}
+
+.bd-search-container .bd-search {
+  margin-top: 24px;
+}
+
+p.search-summary {
+  margin-top: 24px;
+}
+
+.bd-search-container ul.search {
+  /* padding: 0; */
+  padding-inline-start: 0;
+}
+
+.bd-search-container ul.search li {
+  border: none;
+  margin: 0;
+  padding: 4px 0;
+}
+
+/* Hide Search Matches ------------------------------------------------------ */
+div#searchbox p.highlight-link {
+  position: fixed;
+  bottom: 5%;
+  left: 0;
+  right: 0;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  z-index: 9999;
+}
+
+div#searchbox p.highlight-link a { 
+  font-size: unset;
+  border-radius: 4rem;
+  padding: 0.72rem 1.2rem;
+}
+
+div#searchbox p.highlight-link a:before {
+  display: none;
 }

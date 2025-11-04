@@ -29,6 +29,9 @@ html_title = project
 html_theme = 'theme'
 html_theme_path = ["_themes", "_themes/theme"]
 html_static_path = ['_static']
+html_theme_options = {
+    "back_to_top_button": False,
+}
 # html_additional_pages = {
 #     'index': 'test.html',
 # }

@@ -9,8 +9,15 @@
 
 .. raw:: html
     
-    <h1>Documentation</h1>
-    <p>Help for wherever you are at ABC</p>
+    <div class="landing-hero">
+        <div class="landing-hero-overlay"></div>
+        <div class="landing-hero-content-wrapper">
+            <div class="landing-hero-content">
+                <h1>Documentation</h1>
+                <p>Help for wherever you are</p>
+            </div>
+        </div>
+    </div>
 
 .. grid:: 1 2 3 4
 
